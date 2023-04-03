@@ -1,98 +1,7 @@
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+var ingrContainerEl = document.querySelector('#ingredient-container');
+var AddtoListEl = document.querySelector('#add-food-btn');
+var srchFoodinputEl = document.querySelector('#search-food');
+// var query = document.querySelector('#search-food');
 
 function getRecipes() {
 var recipeURL ="https://api.spoonacular.com/recipes/findByIngredients" /* add ingredients in a string at the end using a query with ?ingredients= */ + "?number=10" /*after MVP is finished, create a query for ?ranking=1or2 depending on if they want to maximize used ingredients or minimize missing*/
@@ -124,21 +33,50 @@ fetch("https://api.spoonacular.com/recipes/informationBulk?ids=" + recipeIds)
 }
 /*getRecipes(); - put inside of the click event listener for the search recipes button*/
 
-var query = $(#userinput);
 
-$.ajax({
-    method: 'GET',
-    url: 'https://api.api-ninjas.com/v1/nutrition?query=' + query,
-    headers: { 'X-Api-Key': 'HXPI6N65ktX28fovUXZXpQ==oAgzQ7tYIp7Oinib'},
-    contentType: 'application/json',
-    success: function(result) {
-        console.log(result);
-    },
-    error: function ajaxError(jqXHR) {
-        console.error('Error: ', jqXHR.responseText);
-    }
-});
+// console.log(srchFoodinputEl.value);
+
+
 //This is the event listener for the add to list button
-AddtoListEl.addEventListener('submit', handleAddtoList);
-SrchRecipeEl.addEventListener('submit',handleSrchRecipes);
+AddtoListEl.addEventListener('click',handleAddtoList);
+console.log("here1");
+//  SrchRecipeEl.addEventListener('click',getRecipes);
 
+function handleAddtoList(event) {
+ event.preventDefault();
+ console.log("her21");
+ console.log(srchFoodinputEl.value);
+
+      var foodURL ="https://api.api-ninjas.com/v1/nutrition?query=" + srchFoodinputEl.value; 
+        console.log(foodURL);
+    var foodcals = "";
+    var foodnm = "";
+    
+    fetch(foodURL,{
+        method: 'GET',
+        url: foodURL,
+        headers: { 'X-Api-Key': 'HXPI6N65ktX28fovUXZXpQ==oAgzQ7tYIp7Oinib'},
+        contentType: 'application/json'
+        })
+    .then(function (response) {
+        console.log(response);
+        return response.json();
+        
+    })
+    .then(function (data) {
+        console.log(data); 
+        
+        for (var i = 0; i < data.length; i++) {
+            if(i != 0) {
+            foodnm += "," + data[i].name;
+            foodcals += "," +  data[i].calories;
+            }
+            else {
+                foodcals += data[i].calories;
+                foodnm +=  data[i].name;
+            }
+            console.log(foodcals); console.log(foodnm);
+        }
+    });
+    }
+    
