@@ -74,8 +74,9 @@ function handleAddtoList(event) {
             else {
                 foodcals += data[i].calories;
                 foodnm +=  data[i].name;
+                foodsrv += data[i].serving_size_g;
             }
-            console.log(foodcals); console.log(foodnm);
+            console.log(foodcals); console.log(foodnm);console.log(foodsrv);
         }
     });
     }
