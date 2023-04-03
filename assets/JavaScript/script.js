@@ -16,3 +16,7 @@ $.ajax({
 //This is the event listener for the add to list button
 AddtoListEl.addEventListener('submit', handleAddtoList);
 SrchRecipeEl.addEventListener('submit',handleSrchRecipes);
+
+function handleAddtoList() {
+    
+}
