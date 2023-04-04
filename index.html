@@ -44,10 +44,33 @@
     <div class="col-12 col-md-8">
         <h2 class="subtitle">Ingredient List: <span id="food-search-list"></span></h2>
         <div id="ingredient-container" class="list-group">
+
+        <card id="ingr-list-card"><table class="ingr-list-tbl">
+            <thead>
+             <tr>
+              <th>Ingredient</th>
+              <th>Remove ?</th>
+             </tr>
+            </thead>
+            <tbody id="project-display">
+
+            </tbody>
+            </table>
+        </card>
+
+
             <card id="ingr-list-card"><ul id="ingr-list-ul"></ul></card>
+
         </div>
+        <button id="srchBtn">Search Recipes</button>
     </div>
+
 </aside>
+
+<div class="container" id="foodCards"></div>
+
+<div class="container" id="recipeCards"></div>
+
 <script src="/Starfinder/assets/JavaScript/script.js" ></script>
 </body>
 </html>
