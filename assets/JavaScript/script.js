@@ -1,7 +1,7 @@
 var ingrContainerEl = document.querySelector('#ingredient-container');
 var AddtoListEl = document.querySelector('#add-food-btn');
 var srchFoodinputEl = document.querySelector('#search-food');
-var ingrListUL = document.querySelector('#ingr-list-ul');
+var ingrListTbl = document.querySelector('#project-display');
 
 
 
@@ -56,7 +56,9 @@ function handleAddtoList(event) {
     var foodcals = "";
     var foodnm = "";
     var foodsrv = "";
-    var newIngrItem = document.createElement('li');
+    var newIngrItem = document.createElement('tr');
+    var newIngrData = document.createElement('td');
+    var newIngrRem = document.createElement('td');
     
     fetch(foodURL,{
         method: 'GET',
@@ -83,7 +85,9 @@ function handleAddtoList(event) {
                 foodsrv += data[i].serving_size_g;
             }
             console.log(foodcals); console.log(foodnm);console.log(foodsrv);
-            ingrListUL.appendChild(newIngrItem).textContent = foodnm;
+            ingrListTbl.appendChild(newIngrItem);
+            newIngrItem.appendChild(newIngrData).textContent = foodnm;
+            newIngrItem.appendChild(newIngrRem).textContent = 'X';
             // ingrListUL.appendChild('li').textContent = foodnm;
         }
     });
