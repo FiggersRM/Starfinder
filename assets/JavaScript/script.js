@@ -1,6 +1,10 @@
 var ingrContainerEl = document.querySelector('#ingredient-container');
 var AddtoListEl = document.querySelector('#add-food-btn');
 var srchFoodinputEl = document.querySelector('#search-food');
+var ingrListUL = document.querySelector('#ingr-list-ul');
+
+
+
 // var query = document.querySelector('#search-food');
 
 function getRecipes() {
@@ -51,6 +55,8 @@ function handleAddtoList(event) {
         console.log(foodURL);
     var foodcals = "";
     var foodnm = "";
+    var foodsrv = "";
+    var newIngrItem = document.createElement('li');
     
     fetch(foodURL,{
         method: 'GET',
@@ -77,6 +83,8 @@ function handleAddtoList(event) {
                 foodsrv += data[i].serving_size_g;
             }
             console.log(foodcals); console.log(foodnm);console.log(foodsrv);
+            ingrListUL.appendChild(newIngrItem).textContent = foodnm;
+            // ingrListUL.appendChild('li').textContent = foodnm;
         }
     });
     }
