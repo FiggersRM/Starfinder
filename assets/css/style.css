@@ -3,17 +3,16 @@
 
 }
 
-body {
+html {
+    background-color: rgba(236, 241, 241, 0.971) !important;
     margin: 0;
     padding: 0;
 }
+
 img {
   
     width: 100px;
 }
-
-.navbar-item {  padding: 90px; 
-} 
 
 .navbar{
     display: flex;
@@ -22,6 +21,14 @@ img {
     background-color: rgba(172, 162, 162, 0.745);
     color: rgb(241, 231, 231);
 }
+
+.navbar-item {  padding: 90px; 
+} 
+
+.navbar-item h1{
+    font-family: 'Battambang', cursive !important;
+}
+
 
 .brand-title {
     font-size: 2.5rem;
@@ -106,6 +113,50 @@ img {
 }
 
 .recipeCard a:hover {
+    color: lightblue;
+}
+
+#foodCards {
+    display: flex;
+}
+.foodCard {
+    border: 2px solid black;
+    margin: 5px;
+    min-width: 200px;
+    text-align: center;
+    height: 300px;
+}
+
+
+.foodCard div {
+    height: 75px;
+    align-items: center;
+    justify-content: center;
+}
+
+.foodCard img {
+    min-height: 150px;
+    width: auto;
+}
+
+.foodCard a {
+    color: blue;
+    text-decoration: underline;
+    font-size: 125%;
+    min-height: 50px;
+}
+.foodCard h3 {
+    color: blue;
+    text-decoration: underline;
+    font-size: 125%;
+    min-height: 50px;
+}
+
+.foodCard button {
+    margin: 25px;
+}
+
+.foodCard a:hover {
     color: lightblue;
 }
 
