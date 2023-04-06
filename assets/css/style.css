@@ -113,7 +113,33 @@ img {
     display: none;
 }
 
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 20%;
+  }
+  
+  td {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
 
+ table, tr {
+    border:1px solid  #dddddd;
+  }
+
+th, td, tr {
+  padding-top: 10px;
+  padding-bottom: 20px;
+  padding-left: 30px;
+  padding-right: 40px;
+  
+    
+  }
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
 
 @media (max-width: 800px) {
     .navbar {
