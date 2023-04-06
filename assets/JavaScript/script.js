@@ -134,12 +134,14 @@ function handleAddtoList(event) {
     // create the table row and cells to add to the list
       ingrListTbl.appendChild(newIngrItem);
       newIngrItem.setAttribute('data-row-index',flIndex);
+      
       newIngrItem.setAttribute('id','food-row-' + flIndex)
       newIngrItem.appendChild(newIngrData).textContent = foodnm;
       newIngrItem.appendChild(newIngrRem);
       newIngrRem.appendChild(newIngrRemBtn).textContent = "X";
       newIngrRemBtn.setAttribute('class','btn btn-sm btn-delete-project');
       newIngrRemBtn.setAttribute('data-btn-index',flIndex);
+      newIngrRemBtn.setAttribute('id',foodnm);
       newIngrRemBtn.addEventListener('click',  handleDeleteFood);
      
      // now increment the index for the number of rows in list
@@ -164,11 +166,12 @@ function handleAddtoList(event) {
       foodCardEl.appendChild(foodCard);
       foodCard.appendChild(foodHeader);
       foodCard.appendChild(foodUl);
+     
 
       for (var i = 0; i < foodData.length; i++) {
         if (i === 0) {
-            console.log("in here");
             foodHeader.textContent = foodData[i];
+            foodCard.setAttribute('id','card-' + foodData[i]);
         } else if (i === 1) {
           var foodLi = document.createElement("li");
           foodLi.textContent = "Serving Size: " + foodData[i] + " grams";
@@ -268,9 +271,11 @@ function saveRecipes(event) {
 function handleDeleteFood () {
     //now delete the row of the food item clicked x
     var rowToDel = parseInt($(this).attr('data-btn-index'));
+    var foodToDel = $(this).attr('id');
     var delrow = this.parentNode.parentNode.rowIndex ;
-    console.log("in the remove" + rowToDel + delrow);
+    console.log("in the remove" + rowToDel + delrow + foodToDel);
     $(this).closest('tr').remove(); 
+    $("#card-" + foodToDel).remove();
     
 }
 
