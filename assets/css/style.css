@@ -8,11 +8,13 @@ body {
     padding: 0;
 }
 img {
-    float: left;
-    height: 50px;
-    width: 60px;
+  
+    width: 100px;
+}
 
-  } 
+.navbar-item {  padding: 90px; 
+} 
+
 .navbar{
     display: flex;
     justify-content: space-between;
