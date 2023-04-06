@@ -239,8 +239,7 @@ function handleAddtoList(event) {
     })
       console.log(recipeIngredients);
 
-    });
-}
+    };
 
 function saveRecipes(event) {
   console.log(this);
@@ -249,7 +248,6 @@ function saveRecipes(event) {
   }
 }
 
-    }
     //  );
 
 
