@@ -7,7 +7,7 @@ var foodCardEl = document.querySelector("#foodCards");
 var recipeCardEl = document.querySelector("#recipeCards");
 var saveBtns = document.querySelectorAll("#saveBtn");
 var savedRecipes = JSON.parse(localStorage.getItem("savedRecipes")) || [];
-var saveBtns;
+var savedRecipesBtn = document.getElementById("savedRecipesBtn");
 var recipeIngredients = "";
 var flIndex = 0;
 
@@ -72,6 +72,7 @@ function getRecipes(event) {
     }
 AddtoListEl.addEventListener("click", handleAddtoList);
 srchRecipesEl.addEventListener("click", getRecipes);
+savedRecipesBtn.addEventListener("click", switchPage);
 
 function handleAddtoList(event) {
   event.preventDefault();
@@ -276,6 +277,10 @@ function handleDeleteFood () {
     $(this).closest('tr').remove(); 
     $("#card-" + foodToDel).remove();
     
+}
+
+function switchPage () {
+  window.location.href = "./index2.html";
 }
 
 
