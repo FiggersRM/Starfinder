@@ -43,7 +43,7 @@ function getRecipes(event) {
           return response.json();
         })
         .then(function (data) {
-          console.log(data);
+          console.log(data.length);
           for (var i = 0; i < data.length; i++) {
             var recipeCard = document.createElement("card");
             recipeCard.setAttribute("class", "recipeCard");
@@ -70,10 +70,14 @@ function handleAddtoList(event) {
   var foodURL =
     "https://api.api-ninjas.com/v1/nutrition?query=" + srchFoodinputEl.value;
   console.log(foodURL);
-  recipeIngredients += srchFoodinputEl.value + ",";
+ 
   var foodcals = "";
   var foodnm = "";
   var foodsrv = "";
+  var foodcarbs = "";
+  var foodprotein = "";
+  var foodsugar = "";
+  var foodtotalfat = "";
   var newIngrItem = document.createElement("tr");
   var newIngrData = document.createElement("td");
   var newIngrRem = document.createElement("td");
@@ -87,30 +91,39 @@ function handleAddtoList(event) {
     .then(function (response) {
       console.log(response);
       return response.json();
+      if (response.ok) {
+        console.log("found");
+    }
+   
     })
-    .then(function (data) {
-      console.log(data);
 
-      // for (var i = 0; i < data.length; i++) {
-      // if(i != 0) {
-      // foodnm += "," + data[i].name;
-      // foodcals += "," +  data[i].calories;
-      // }
-      // else {
+    .then(function (data) {
+      
+    //   for (var i = 0; i < data.length; i++) {
+       if (data.length != 0) {
+     
+      console.log(data[0].name + "here");
       foodnm += data[0].name;
-      foodsrv += data[0].serving_size_g;
-      foodcals += data[0].calories;
-      foodcarbs = data[0].carbohydrates_total_g;
-      foodprotein = data[0].protein_g;
-      foodsugar = data[0].sugar_g;
-      foodtotalfat = data[0].fat_total_g;
-      // }
-      console.log(foodcals);
-      console.log(foodnm);
-      console.log(foodsrv);
+      
+      foodcals +=  data[0].calories;
+    //   .then(function (data) {
+       
+        // foodnm += data[0].name;
+        foodsrv += data[0].serving_size_g;
+        // foodcals += data[0].calories;
+        foodcarbs += data[0].carbohydrates_total_g;
+        foodprotein += data[0].protein_g;
+        foodsugar += data[0].sugar_g;
+        foodtotalfat += data[0].fat_total_g;
+        recipeIngredients +=  foodnm  + ","
+        console.log(recipeIngredients)
+    
+      
+    // })
       ingrListTbl.appendChild(newIngrItem);
       newIngrItem.appendChild(newIngrData).textContent = foodnm;
       newIngrItem.appendChild(newIngrRem).textContent = "X";
+      srchFoodinputEl.value = "";
       var foodData = [
         foodnm,
         foodsrv,
@@ -120,6 +133,7 @@ function handleAddtoList(event) {
         foodsugar,
         foodtotalfat,
       ];
+   
       // ingrListUL.appendChild('li').textContent = foodnm;
       var foodCard = document.createElement("card");
       var foodUl = document.createElement("ul");
@@ -129,6 +143,7 @@ function handleAddtoList(event) {
       foodCard.appendChild(foodUl);
       for (var i = 0; i < foodData.length; i++) {
         if (i === 0) {
+            console.log("in here");
             foodHeader.textContent = foodData[i];
         } else if (i === 1) {
           var foodLi = document.createElement("li");
@@ -158,6 +173,62 @@ function handleAddtoList(event) {
             foodUl.appendChild(foodLi);
         }
       }
+     
+    }
+    else {
+       console.log( "modal")
+       
+       $( function() {
+         $( "#dialog" ).dialog();
+       } );
+   
+        document.addEventListener('DOMContentLoaded', () => {
+            // Functions to open and close a modal
+            function openModal($el) {
+              $el.classList.add('is-active');
+            }
+          
+            function closeModal($el) {
+              $el.classList.remove('is-active');
+            }
+          
+            function closeAllModals() {
+              (document.querySelectorAll('.modal') || []).forEach(($modal) => {
+                closeModal($modal);
+              });
+            }
+          
+            // Add a click event on buttons to open a specific modal
+            (document.querySelectorAll('.js-modal-trigger') || []).forEach(($trigger) => {
+              const modal = $trigger.dataset.target;
+              const $target = document.getElementById(modal);
+          
+              $trigger.addEventListener('click', () => {
+                openModal($target);
+              });
+            });
+          
+            // Add a click event on various child elements to close the parent modal
+            (document.querySelectorAll('.modal-background, .modal-close, .modal-card-head .delete, .modal-card-foot .button') || []).forEach(($close) => {
+              const $target = $close.closest('.modal');
+          
+              $close.addEventListener('click', () => {
+                closeModal($target);
+              });
+            });
+          
+            // Add a keyboard event to close all modals
+            document.addEventListener('keydown', (event) => {
+              const e = event || window.event;
+          
+              if (e.keyCode === 27) { // Escape key
+                closeAllModals();
+              }
+            });
+          });
+    }
+    })
       console.log(recipeIngredients);
-    });
-}
+    }
+    //  );
+
