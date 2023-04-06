@@ -92,8 +92,7 @@ function handleAddtoList(event) {
   var newIngrData = document.createElement("td");
   var newIngrRem = document.createElement('td');
   var newIngrRemBtn = document.createElement('button');
-    '<td><button class="btn btn-sm btn-delete-project" >X</button></td>'
-   ;
+    ;
   fetch(foodURL, {
     method: "GET",
     url: foodURL,
@@ -139,7 +138,7 @@ function handleAddtoList(event) {
       newIngrItem.appendChild(newIngrData).textContent = foodnm;
       newIngrItem.appendChild(newIngrRem);
       newIngrRem.appendChild(newIngrRemBtn).textContent = "X";
-      newIngrRemBtn.setAttribute('class','btn btn-sm btn-delete-project');
+      newIngrRemBtn.setAttribute('class','btn btn-sm btn-delete-food');
       newIngrRemBtn.setAttribute('data-btn-index',flIndex);
       newIngrRemBtn.setAttribute('id',foodnm);
       newIngrRemBtn.addEventListener('click',  handleDeleteFood);
@@ -164,6 +163,7 @@ function handleAddtoList(event) {
       var foodUl = document.createElement("ul");
       var foodHeader = document.createElement("h3");
       foodCardEl.appendChild(foodCard);
+      foodCard.setAttribute('class','foodCard')
       foodCard.appendChild(foodHeader);
       foodCard.appendChild(foodUl);
      

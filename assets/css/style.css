@@ -109,6 +109,44 @@ img {
     color: lightblue;
 }
 
+#foodCards {
+    display: flex;
+}
+.foodCard {
+    border: 2px solid black;
+    margin: 5px;
+    min-width: 200px;
+    text-align: center;
+    height: 300px;
+}
+
+
+.foodCard div {
+    height: 75px;
+    align-items: center;
+    justify-content: center;
+}
+
+.foodCard img {
+    min-height: 150px;
+    width: auto;
+}
+
+.foodCard a {
+    color: blue;
+    text-decoration: underline;
+    font-size: 125%;
+    min-height: 50px;
+}
+
+.foodCard button {
+    margin: 25px;
+}
+
+.foodCard a:hover {
+    color: lightblue;
+}
+
 #dialog {
     display: none;
 }
