@@ -138,6 +138,12 @@ img {
     font-size: 125%;
     min-height: 50px;
 }
+.foodCard h3 {
+    color: blue;
+    text-decoration: underline;
+    font-size: 125%;
+    min-height: 50px;
+}
 
 .foodCard button {
     margin: 25px;
