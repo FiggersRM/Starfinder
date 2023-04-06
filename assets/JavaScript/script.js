@@ -54,7 +54,8 @@ function getRecipes(event) {
             var recipeImg = document.createElement("img");
             var recipeLink = document.createElement("a");
             var saveBtn = document.createElement("button");
-            saveBtn.setAttribute("id", "saveBtn");
+            // saveBtn.setAttribute("class", "saveBtn");
+            saveBtn.setAttribute("id", data[i].id);
             saveBtn.innerHTML = "Save Recipe"
             recipeLink.innerHTML = data[i].title;
             recipeLink.href = data[i].sourceUrl;
@@ -64,13 +65,11 @@ function getRecipes(event) {
             recipeCard.appendChild(recipeImg);
             recipeCard.appendChild(saveBtn);
             recipeCardEl.appendChild(recipeCard);
+            saveBtn.addEventListener("click", saveRecipes);
           }
         });
-        saveBtns = document.querySelectorAll("#saveBtn");
-        saveBtns.addEventListener("click", saveRecipes);
-    });
-
-}
+      });
+    }
 AddtoListEl.addEventListener("click", handleAddtoList);
 srchRecipesEl.addEventListener("click", getRecipes);
 
@@ -262,10 +261,10 @@ function handleAddtoList(event) {
     };
 
 function saveRecipes(event) {
-  console.log(this);
-  var recipe = {
-
-  }
+  var recipeId = this.id;
+  console.log(recipeId);
+  savedRecipes.push(recipeId + ",");
+  localStorage.setItem("savedRecipes", JSON.stringify(savedRecipes));
 }
 
 function handleDeleteFood () {
