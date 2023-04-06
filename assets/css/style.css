@@ -69,10 +69,45 @@ img {
     border-radius: 10px;
 }
 
-.recipeCard img {
-    height: 100px;
-    width: 100px;
+#recipeCards {
+    display: flex;
 }
+
+.recipeCard {
+    border: 2px solid black;
+    margin: 5px;
+    min-width: 200px;
+    text-align: center;
+    height: 300px;
+}
+
+.recipeCard div {
+    height: 75px;
+    align-items: center;
+    justify-content: center;
+}
+
+.recipeCard img {
+    min-height: 150px;
+    width: auto;
+}
+
+.recipeCard a {
+    color: blue;
+    text-decoration: underline;
+    font-size: 125%;
+    min-height: 50px;
+}
+
+.recipeCard button {
+    margin: 25px;
+}
+
+.recipeCard a:hover {
+    color: lightblue;
+}
+
+
 
 @media (max-width: 800px) {
     .navbar {

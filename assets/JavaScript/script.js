@@ -5,7 +5,9 @@ var srchRecipesEl = document.querySelector("#srchRecipesBtn");
 var ingrListTbl = document.querySelector("#project-display");
 var foodCardEl = document.querySelector("#foodCards");
 var recipeCardEl = document.querySelector("#recipeCards");
-
+var saveBtns = document.querySelectorAll("#saveBtn");
+var savedRecipes = JSON.parse(localStorage.getItem("savedRecipes")) || [];
+var saveBtns;
 var recipeIngredients = "";
 
 function getRecipes(event) {
@@ -47,20 +49,27 @@ function getRecipes(event) {
           for (var i = 0; i < data.length; i++) {
             var recipeCard = document.createElement("card");
             recipeCard.setAttribute("class", "recipeCard");
+            var cardHeader = document.createElement("div");
             var recipeImg = document.createElement("img");
             var recipeLink = document.createElement("a");
+            var saveBtn = document.createElement("button");
+            saveBtn.setAttribute("id", "saveBtn");
+            saveBtn.innerHTML = "Save Recipe"
             recipeLink.innerHTML = data[i].title;
             recipeLink.href = data[i].sourceUrl;
             recipeImg.src = data[i].image;
+            cardHeader.appendChild(recipeLink);
+            recipeCard.appendChild(cardHeader);
             recipeCard.appendChild(recipeImg);
-            recipeCard.appendChild(recipeLink);
+            recipeCard.appendChild(saveBtn);
             recipeCardEl.appendChild(recipeCard);
           }
         });
+        saveBtns = document.querySelectorAll("#saveBtn");
+        saveBtns.addEventListener("click", saveRecipes);
     });
 
 }
-/*getRecipes(); - put inside of the click event listener for the search recipes button*/
 AddtoListEl.addEventListener("click", handleAddtoList);
 srchRecipesEl.addEventListener("click", getRecipes);
 
@@ -229,6 +238,18 @@ function handleAddtoList(event) {
     }
     })
       console.log(recipeIngredients);
+
+    });
+}
+
+function saveRecipes(event) {
+  console.log(this);
+  var recipe = {
+
+  }
+}
+
     }
     //  );
+
 
