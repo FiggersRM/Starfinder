@@ -276,7 +276,8 @@ function handleDeleteFood () {
     console.log("in the remove" + rowToDel + delrow + foodToDel);
     $(this).closest('tr').remove(); 
     $("#card-" + foodToDel).remove();
-    
+    var newRecipeIngredients = recipeIngredients.replace(foodToDel + ",", "");
+    recipeIngredients = newRecipeIngredients;
 }
 
 function switchPage () {
