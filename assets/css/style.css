@@ -30,7 +30,8 @@ img {
 }
 
 #header-logo {
-  padding-left: 900px;
+  margin-left: auto;
+  margin-right: auto;
 }
 .toggle-button {
     position: absolute;
