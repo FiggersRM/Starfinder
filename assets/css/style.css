@@ -29,7 +29,9 @@ img {
     font-family: 'Battambang', cursive !important;
 }
 
-
+#header-logo {
+  padding-left: 900px;
+}
 .toggle-button {
     position: absolute;
     top: .75rem;
