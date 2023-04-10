@@ -151,8 +151,18 @@ html {
     font-weight: bold;
 }
 
+#main-header {
+    text-align: center;
+    font-size: 200%;
+    font-weight: bold;
+}
+
 .content li {
     list-style-type: none;
+}
+
+#directions-list {
+    list-style-type: circle;
 }
 
 /* table {
