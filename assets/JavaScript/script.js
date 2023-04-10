@@ -283,11 +283,8 @@ function saveRecipes(event) {
   var recipeId = this.id;
   console.log(recipeId);
   console.log(savedRecipes);
-  var saveRecs = savedRecipes.toString();
-  var newRecs = [];
-  newRecs = saveRecs.split(",");
-  newRecs.push(recipeId + ",");
-  localStorage.setItem("savedRecipes", JSON.stringify(newRecs));
+  savedRecipes.push(recipeId + ",");
+  localStorage.setItem("savedRecipes", JSON.stringify(savedRecipes));
   $(this).remove();
 }
 
