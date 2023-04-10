@@ -7,7 +7,7 @@ var foodCardEl = document.querySelector("#foodCards");
 var recipeCardEl = document.querySelector("#recipeCards");
 var saveBtns = document.querySelectorAll("#saveBtn");
 var savedRecipes = JSON.parse(localStorage.getItem("savedRecipes")) || [];
-var savedRecipesBtn = document.getElementById("savedRecipesBtn");
+var savedRecipesBtn = document.getElementById("#savedRecipesBtn");
 var recipeIngredients = "";
 var flIndex = 0;
 
@@ -23,7 +23,7 @@ function getRecipes(event) {
   var recipeURL =
     "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?ingredients=" +
     recipeIngredients +
-    "&number=10"; /*after MVP is finished, create a query for ?ranking=1or2 depending on if they want to maximize used ingredients or minimize missing*/
+    "&number=1"; /*after MVP is finished, create a query for ?ranking=1or2 depending on if they want to maximize used ingredients or minimize missing*/
   var recipeIds = "";
   fetch(recipeURL, options)
     .then(function (response) {
@@ -48,23 +48,22 @@ function getRecipes(event) {
         .then(function (data) {
           console.log(data.length);
           for (var i = 0; i < data.length; i++) {
-            var recipeCard = document.createElement("card");
-            recipeCard.setAttribute("class", "recipeCard");
-            var cardHeader = document.createElement("div");
-            var recipeImg = document.createElement("img");
-            var recipeLink = document.createElement("a");
+            var card = document.getElementById("#recipedCard" + i);
+            document.querySelector("#cardImg0").src = data[i].image;
+            document.querySelector("#cardLink0").href = data[i].sourceUrl;
+            document.querySelector("#cardLink0").innerHTML = data[i].title;
             var saveBtn = document.createElement("button");
             // saveBtn.setAttribute("class", "saveBtn");
             saveBtn.setAttribute("id", data[i].id);
             saveBtn.innerHTML = "Save Recipe"
-            recipeLink.innerHTML = data[i].title;
-            recipeLink.href = data[i].sourceUrl;
-            recipeImg.src = data[i].image;
-            cardHeader.appendChild(recipeLink);
-            recipeCard.appendChild(cardHeader);
-            recipeCard.appendChild(recipeImg);
-            recipeCard.appendChild(saveBtn);
-            recipeCardEl.appendChild(recipeCard);
+            // recipeLink.innerHTML = data[i].title;
+            // recipeLink.href = data[i].sourceUrl;
+            // recipeImg.src = data[i].image;
+            // cardHeader.appendChild(recipeLink);
+            // recipeCard.appendChild(cardHeader);
+            // recipeCard.appendChild(recipeImg);
+            // recipeCard.appendChild(saveBtn);
+            // recipeCardEl.appendChild(recipeCard);
             saveBtn.addEventListener("click", saveRecipes);
           }
         });
@@ -72,7 +71,8 @@ function getRecipes(event) {
     }
 AddtoListEl.addEventListener("click", handleAddtoList);
 srchRecipesEl.addEventListener("click", getRecipes);
-savedRecipesBtn.addEventListener("click", switchPage);
+// savedRecipesBtn.addEventListener("click", switchPage);
+
 
 function handleAddtoList(event) {
   event.preventDefault();

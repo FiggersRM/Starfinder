@@ -30,6 +30,24 @@ rel="stylesheet">
   <body>
     <div class="navbar-brand navbar has-background-grey-lighter">
       
+
+      <figure id="header-logo" class= "navbar has-background-grey-lighter image is-50x50">
+        <img src= "assets/images/logo.png" class=>
+      </figure>
+    </div>
+    <nav class="navbar has-background-grey-lighter" role="navigation" aria-label="main navigation">
+      <!-- <div class="navbar-brand">
+        
+        <figure id="header-logo" class= "image is-50x50">
+          <img src= "assets/images/logo.png" svg>
+        </figure>
+      </div>
+      <div> -->
+        
+        
+        
+        <!-- </div> -->
+        <div class="navbar-end">
         <figure id="header-logo" class= "navbar has-background-grey-lighter image is-50x50">
           <img src= "assets/images/logo.png" class=>
         </figure>
@@ -49,69 +67,80 @@ rel="stylesheet">
           </div>
         </div>
       </div>
-      </nav>
-    <aside>
+    </nav>
+    <div class="columns">
+    <aside class="column is-one-quarter m-3">
+      <div class="mb-3"id="searchDiv">
       <input
         id="search-food"
-        class="form-input w-100"
+        class="form-input w-100 p-1 ml-5 mt-1"
         type="text"
-        placeholder="Enter a Food!"
-      /><button id="add-food-btn" class="btn btn-info btn-block">
+        placeholder="Enter a Food!"/>
+      
+      
+      <button id="add-food-btn" class="button ml-6 is-primary is-outlined">
         Find Food
       </button>
-      <div class="col-12 col-md-8">
-        <h2 class="subtitle">Ingredient List:</h2>
-        <div id="ingredient-container" class="list-group">
-          <card id="ingr-list-card"
-            ><table class="ingr-list-tbl">
-              <thead>
-                <tr>
-                  <th>Ingredient</th>
-                  <th></th>
-                </tr>
-              </thead>
-              <tbody id="project-display"></tbody>
-            </table>
-          </card>
-        </div>
-        <button id="srchRecipesBtn">Search Recipes</button>
-      </div>
+      <!-- <h2 class="subtitle">Ingredient List:</h2> -->
+      <table class="table is-striped is-fullwidth mt-3">
+        <thead>
+          <tr>
+            <th>Ingredients:</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody id="project-display"></tbody>
+      </table>
+        <button class="button is-primary is-outlined" id="srchRecipesBtn">Search Recipes</button>
+    </div>
     </aside>
 
-    <div class="container" id="foodCards"></div>
-
-    <div class="container" id="recipeCards"></div>
-    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
-  <div id="dialog" title="Food Not Found">
-    <p>Food not found! Try another!</p>
-  </div>
-
-
-    <div class="flex-container" id="recipeCards">
-
-
-  <!--  Container if needed
-    <div class="container" id="recipeCards"></div>
-    
-    <div class="flex-container">
-
-      <div class="card">Card 1</div>
-      <div class="card">Card 2</div>
-      <div class="card">Card 3</div>
-      <div class="card">Card 4</div>
-      <div class="card">Card 5</div>
-      <div class="card">Card 6</div>
-      <div class="card">Card 7</div>
-      <div class="card">Card 8</div>
-      <div class="card">Card 9</div>
-      <div class="card">Card 10</div>
-
-      <button id="savedRecipesBtn">Click here to go to your saved recipes!</button>
+    <div class="container column" id="foodCards"></div>
+    <!-- <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script> -->
+    <div id="dialog" title="Food Not Found">
+      <p>Food not found! Try another!</p>
     </div>
-
-
-    </div>  -->
-  <script src="./assets/JavaScript/script.js"></script>
+    
+    
+    <div class="flex-container" id="recipeCards">
+      <div class = "card" id = "recipeCard0">
+        <div class = "card image">
+          <figure class = "image is -128x128">
+            <img id="cardImg0">
+          </figure>
+        </div>
+        </div>
+      <div class = "card-content is-centered">
+        <div class = "content is-centered">
+          <a class ="is-centered" id="cardLink0"></a>
+        </div>
+      </div>
+      </div>
+      </div>
+      </div>
+      
+      
+      <!--  Container if needed
+        
+        <div class="flex-container">
+          
+          <div class="card">Card 1</div>
+          <div class="card">Card 2</div>
+          <div class="card">Card 3</div>
+          <div class="card">Card 4</div>
+          <div class="card">Card 5</div>
+          <div class="card">Card 6</div>
+          <div class="card">Card 7</div>
+          <div class="card">Card 8</div>
+          <div class="card">Card 9</div>
+          <div class="card">Card 10</div>
+          
+          <button id="savedRecipesBtn">Click here to go to your saved recipes!</button>
+        </div> -->
+        
+        
+      </div>
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+      <script src="./assets/JavaScript/script.js"></script>
 <body>
 </html>

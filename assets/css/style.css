@@ -8,10 +8,10 @@ html {
     padding: 0;
 }
 
-img {
+/* img {
   
     width: 100px;
-}
+} */
 
 .navbar{
     display: flex;
@@ -21,8 +21,8 @@ img {
     color: rgb(241, 231, 231);
 }
 
-.navbar-item {  padding: 90px; 
-    
+.navbar-item {  
+    padding: 90px;
 } 
 
 .navbar-item h1{
@@ -33,7 +33,9 @@ img {
   margin-left: auto;
   margin-right: auto;
 }
-.toggle-button {
+
+
+/* .toggle-button {
     position: absolute;
     top: .75rem;
     right: 1rem;
@@ -49,7 +51,7 @@ img {
     width: 100%;
     background-color: white;
     border-radius: 10px;
-}
+} */
 
 #recipeCards {
     display: flex;
@@ -137,7 +139,7 @@ img {
     display: none;
 }
 
-table {
+/* table {
     font-family: arial, sans-serif;
     border-collapse: collapse;
     width: 20%;
@@ -158,11 +160,14 @@ th, td, tr {
   padding-bottom: 20px;
   padding-left: 30px;
   padding-right: 40px;
-  
-    
-  }
+   }
+
 tr:nth-child(even) {
   background-color: #dddddd;
+} */
+
+#srchRecipesBtn {
+    margin-left: 130px;
 }
 
 @media (max-width: 800px) {
