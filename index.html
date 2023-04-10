@@ -16,21 +16,10 @@ rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="./assets/css/style.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     <title>What The Hell's For Dinner?!</title>
-    <style>
-      /* body { */
-        /* background-image: url(assets/pexels-lukas-616401.jpg);
-        background-repeat: no-repeat;
-        background-size: 900px;
-        background-position: center; */
-        /* background-color: rgba(236, 241, 241, 0.971);
-      } */
-    </style>
   </head>
 
   <body>
     <div class="navbar-brand navbar has-background-grey-lighter">
-      
-
       <figure id="header-logo" class= "navbar has-background-grey-lighter image is-50x50">
         <img src= "assets/images/logo.png" class=>
       </figure>
@@ -42,28 +31,24 @@ rel="stylesheet">
               <a class="button is-primary" href="./index2.html">
                 <strong>Saved Recipes</strong>
               </a>
-              <a class="button is-light">
-                About Us
-              </a>
             </div>
           </div>
         </div>
       </div>
     </nav>
     <div class="columns">
-    <aside class="column is-one-quarter m-3">
+    <aside class="column is-one-quarter m-3 has-text-centered">
       <div class="mb-3"id="searchDiv">
       <input
         id="search-food"
-        class="form-input w-100 p-1 ml-5 mt-1"
+        class="input p-1 mb-2 mt-1 is-primary"
         type="text"
         placeholder="Enter a Food!"/>
       
       
-      <button id="add-food-btn" class="button ml-6 is-primary is-outlined">
+      <button id="add-food-btn" class="button is-primary is-outlined">
         Find Food
       </button>
-      <!-- <h2 class="subtitle">Ingredient List:</h2> -->
       <table class="table is-striped is-fullwidth mt-3">
         <thead>
           <tr>
@@ -77,50 +62,37 @@ rel="stylesheet">
     </div>
     </aside>
 
-    <div class="container column" id="foodCards"></div>
-    <!-- <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script> -->
+    <div class="column is-three-quarters" id="foodCardsCont">
+      <h1 class="is-underlined">Ingredient Nutrition</h1>
+      <div class="is-flex is-flex-wrap-wrap is-justify-content-space-around" id="foodCards">
+      <!-- <div class="card column is-3 m-2">
+        <header class="card-header">
+          <p class="card-header-title is-centered">
+            Food
+          </p>
+        </header>
+        <div class="card-content">
+          <div class="content">
+            <p>item 1</p>
+            <p>item 2</p>
+          </div>
+        </div>
+      </div> -->
+      </div>
+    </div>
     <div id="dialog" title="Food Not Found">
       <p>Food not found! Try another!</p>
     </div>
+  </div>
     
     
-    <div class="flex-container" id="recipeCards">
-      <div class = "card" id = "recipeCard0">
-        <div class = "card image">
-          <figure class = "image is -128x128">
-            <img id="cardImg0">
-          </figure>
-        </div>
-        </div>
-      <div class = "card-content is-centered">
-        <div class = "content is-centered">
-          <a class ="is-centered" id="cardLink0"></a>
-        </div>
-      </div>
-      </div>
-      </div>
-      </div>
+    <div id="recipeCardsCont">
+      <h1 class="is-underlined">Recipes</h1>
+      <div class="is-flex is-flex-wrap-wrap is-justify-content-space-between" id="recipeCards">
       
       
-      <!--  Container if needed
-        
-        <div class="flex-container">
-          
-          <div class="card">Card 1</div>
-          <div class="card">Card 2</div>
-          <div class="card">Card 3</div>
-          <div class="card">Card 4</div>
-          <div class="card">Card 5</div>
-          <div class="card">Card 6</div>
-          <div class="card">Card 7</div>
-          <div class="card">Card 8</div>
-          <div class="card">Card 9</div>
-          <div class="card">Card 10</div>
-          
-          <button id="savedRecipesBtn">Click here to go to your saved recipes!</button>
-        </div> -->
-        
-        
+      </div>
+      </div>
       </div>
       <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
       <script src="./assets/JavaScript/script.js"></script>

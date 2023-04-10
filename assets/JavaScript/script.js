@@ -23,7 +23,7 @@ function getRecipes(event) {
   var recipeURL =
     "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?ingredients=" +
     recipeIngredients +
-    "&number=1"; /*after MVP is finished, create a query for ?ranking=1or2 depending on if they want to maximize used ingredients or minimize missing*/
+    "&number=12"; /*after MVP is finished, create a query for ?ranking=1or2 depending on if they want to maximize used ingredients or minimize missing*/
   var recipeIds = "";
   fetch(recipeURL, options)
     .then(function (response) {
@@ -48,22 +48,36 @@ function getRecipes(event) {
         .then(function (data) {
           console.log(data.length);
           for (var i = 0; i < data.length; i++) {
-            var card = document.getElementById("#recipedCard" + i);
-            document.querySelector("#cardImg0").src = data[i].image;
-            document.querySelector("#cardLink0").href = data[i].sourceUrl;
-            document.querySelector("#cardLink0").innerHTML = data[i].title;
+            var card = document.createElement("card");
+            card.setAttribute("class", "card column is-3 m-2");
+            var imgDiv = document.createElement("div");
+            imgDiv.setAttribute("class", "card-image has-text-centered");
+            card.appendChild(imgDiv);
+            var imgFig = document.createElement("figure");
+            imgFig.setAttribute("class", "image is-128x128 is-inline-block");
+            imgDiv.appendChild(imgFig);
+            var img = document.createElement("img");
+            img.src= data[i].image;
+            imgFig.appendChild(img);
+            var cardContent = document.createElement("div");
+            cardContent.setAttribute("class", "card-content");
+            card.appendChild(cardContent);
+            var content = document.createElement("div");
+            content.setAttribute("class", "content");
+            cardContent.appendChild(content);
+            var link = document.createElement("a");
+            link.href = data[i].sourceUrl;
+            link.innerHTML = data[i].title;
+            content.appendChild(link);
+            var footer = document.createElement("footer");
+            footer.setAttribute("class", "card-footer");
+            card.appendChild(footer);
             var saveBtn = document.createElement("button");
-            // saveBtn.setAttribute("class", "saveBtn");
+            saveBtn.setAttribute("class", "button is-primary mb-3");
             saveBtn.setAttribute("id", data[i].id);
-            saveBtn.innerHTML = "Save Recipe"
-            // recipeLink.innerHTML = data[i].title;
-            // recipeLink.href = data[i].sourceUrl;
-            // recipeImg.src = data[i].image;
-            // cardHeader.appendChild(recipeLink);
-            // recipeCard.appendChild(cardHeader);
-            // recipeCard.appendChild(recipeImg);
-            // recipeCard.appendChild(saveBtn);
-            // recipeCardEl.appendChild(recipeCard);
+            saveBtn.innerHTML = "Save Recipe";
+            footer.appendChild(saveBtn);
+            recipeCardEl.appendChild(card);
             saveBtn.addEventListener("click", saveRecipes);
           }
         });
@@ -71,7 +85,6 @@ function getRecipes(event) {
     }
 AddtoListEl.addEventListener("click", handleAddtoList);
 srchRecipesEl.addEventListener("click", getRecipes);
-// savedRecipesBtn.addEventListener("click", switchPage);
 
 
 function handleAddtoList(event) {
@@ -109,19 +122,15 @@ function handleAddtoList(event) {
     })
 
     .then(function (data) {
-      
+      console.log(data);
     //   for (var i = 0; i < data.length; i++) {
        if (data.length != 0) {
      
       console.log(data[0].name + "here");
       foodnm += data[0].name;
       
-      foodcals +=  data[0].calories;
-    //   .then(function (data) {
-       
-        // foodnm += data[0].name;
+        foodcals +=  data[0].calories;
         foodsrv += data[0].serving_size_g;
-        // foodcals += data[0].calories;
         foodcarbs += data[0].carbohydrates_total_g;
         foodprotein += data[0].protein_g;
         foodsugar += data[0].sugar_g;
@@ -138,7 +147,7 @@ function handleAddtoList(event) {
       newIngrItem.appendChild(newIngrData).textContent = foodnm;
       newIngrItem.appendChild(newIngrRem);
       newIngrRem.appendChild(newIngrRemBtn).textContent = "X";
-      newIngrRemBtn.setAttribute('class','btn btn-sm btn-delete-food');
+      newIngrRemBtn.setAttribute('class','button is-primary btn-sm btn-delete-food');
       newIngrRemBtn.setAttribute('data-btn-index',flIndex);
       newIngrRemBtn.setAttribute('id',foodnm);
       newIngrRemBtn.addEventListener('click',  handleDeleteFood);
@@ -160,44 +169,53 @@ function handleAddtoList(event) {
    //end object
     
       var foodCard = document.createElement("card");
-      var foodUl = document.createElement("ul");
-      var foodHeader = document.createElement("h3");
+      foodCard.setAttribute("class", "card column is-3 m-2");
       foodCardEl.appendChild(foodCard);
-      foodCard.setAttribute('class','foodCard')
-      foodCard.appendChild(foodHeader);
-      foodCard.appendChild(foodUl);
+      var headerDiv = document.createElement("header");
+      headerDiv.setAttribute("class", "card-header has-text-centered");
+      foodCard.appendChild(headerDiv);
+      headerDivP = document.createElement("p");
+      headerDivP.setAttribute("class", "card-header-title is-centered");
+      headerDiv.appendChild(headerDivP);
+      var cardContentDiv = document.createElement("div");
+      cardContentDiv.setAttribute("class", "card-content");
+      foodCard.appendChild(cardContentDiv);
+      var contentDiv = document.createElement("div");
+      contentDiv.setAttribute("class", "content");
+      cardContentDiv.appendChild(contentDiv);
      
 
       for (var i = 0; i < foodData.length; i++) {
         if (i === 0) {
-            foodHeader.textContent = foodData[i];
+            headerDivP.textContent = foodData[i];
             foodCard.setAttribute('id','card-' + foodData[i]);
         } else if (i === 1) {
-          var foodLi = document.createElement("li");
-          foodLi.textContent = "Serving Size: " + foodData[i] + " grams";
-          foodUl.appendChild(foodLi);
+          var foodLi = document.createElement("p");
+          foodLi.setAttribute("class", "");
+          foodLi.textContent = "Serving Size: " + foodData[i] + " grams (3.5oz)";
+          contentDiv.appendChild(foodLi);
         } else if (i === 2) {
-          var foodLi = document.createElement("li");
+          var foodLi = document.createElement("p");
           foodLi.textContent = "Calories per Serving: " + foodData[i];
-          foodUl.appendChild(foodLi);
+          contentDiv.appendChild(foodLi);
         } else if (i === 3) {
-          var foodLi = document.createElement("li");
+          var foodLi = document.createElement("p");
           foodLi.textContent =
             "Carbohydrates per Serving: " + foodData[i] + " grams";
-            foodUl.appendChild(foodLi);
+            contentDiv.appendChild(foodLi);
         } else if (i === 4) {
-          var foodLi = document.createElement("li");
+          var foodLi = document.createElement("p");
           foodLi.textContent = "Protein per Serving: " + foodData[i] + " grams";
-          foodUl.appendChild(foodLi);
+          contentDiv.appendChild(foodLi);
         } else if (i === 5) {
-          var foodLi = document.createElement("li");
+          var foodLi = document.createElement("p");
           foodLi.textContent = "Sugars per Serving: " + foodData[i] + " grams";
-          foodUl.appendChild(foodLi);
+          contentDiv.appendChild(foodLi);
         } else {
-          var foodLi = document.createElement("li");
+          var foodLi = document.createElement("p");
           foodLi.textContent =
             "Total Fat per Serving: " + foodData[i] + " grams";
-            foodUl.appendChild(foodLi);
+            contentDiv.appendChild(foodLi);
         }
       }
      
@@ -266,6 +284,7 @@ function saveRecipes(event) {
   console.log(recipeId);
   savedRecipes.push(recipeId + ",");
   localStorage.setItem("savedRecipes", JSON.stringify(savedRecipes));
+  $(this).remove();
 }
 
 function handleDeleteFood () {
