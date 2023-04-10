@@ -36,6 +36,16 @@ rel="stylesheet">
         </div>
       </div>
     </nav>
+    <h1 class ="my-3" id="main-header">Welcome</h1>
+    <p class="mx-3 has-text-centered my-3">Picture this moment: you've had food in the fridge that you have no idea what to do with it. We've all been there for different reasons: the food is about to spoil, you don't feel like going to the grocery store, or simply just want to use what you have. What the Hell's for Dinner is an application designed to help you solve that issue! We created this website so that users can enter in food ingredients one at a time, and have recipes returned which include those ingredients. In addition, the nutritional value of each individual item is given to the user, so that they can see exactly what kind of nutrients each of those food provides. You may also save any recipe that is given by clicking the "Save Recipe" button underneath it. To view saved recipes, users may click on the "Saved Recipes" button in the top-right.</p>
+    <p class="mx-3 mt-5 mb-3">To use the application:</p>
+    <ul class="mx-6 mb-5" id="directions-list">
+      <li>Enter an ingredient in the search bar below (one at a time).</li>
+      <li>Click the "Find Food" button, and you will see the nutritional information of that food appear in the "Ingredient Nutrition" section.</li>
+      <li>You may remove ingredients that you have entered by clicking the green "X" button.</li>
+      <li>Once you have all of your ingredients entered, click the "Search Recipes" button.</li>
+      <li>Recipes will appear in the "Recipes" section below. If you'd like to save one, click the save recipe button. Any saved recipes may be seen by clicking the "Saved Recipes" button in the top-right.</li>
+    </ul>
     <div class="columns">
     <aside class="column is-one-quarter m-3 has-text-centered">
       <div class="mb-3"id="searchDiv">
@@ -65,19 +75,6 @@ rel="stylesheet">
     <div class="column is-three-quarters" id="foodCardsCont">
       <h1 class="is-underlined">Ingredient Nutrition</h1>
       <div class="is-flex is-flex-wrap-wrap is-justify-content-space-around" id="foodCards">
-      <!-- <div class="card column is-3 m-2">
-        <header class="card-header">
-          <p class="card-header-title is-centered">
-            Food
-          </p>
-        </header>
-        <div class="card-content">
-          <div class="content">
-            <p>item 1</p>
-            <p>item 2</p>
-          </div>
-        </div>
-      </div> -->
       </div>
     </div>
     <div id="dialog" title="Food Not Found">
@@ -91,7 +88,6 @@ rel="stylesheet">
       <div class="is-flex is-flex-wrap-wrap is-justify-content-space-between" id="recipeCards">
       
       
-      </div>
       </div>
       </div>
       <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
