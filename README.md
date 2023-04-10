@@ -45,6 +45,12 @@ N/A
 
 ## Application Image
 
-Below is an image of the deployed application:
+Below are images of the deployed application:
 
-![alt text]()
+Main page where recipes are searched:
+
+![alt text](./assets/images/figgersrm.github.io_WTHFD_index.html.png)
+
+Saved Recipes Page:
+
+![alt text](./assets/images/figgersrm.github.io_WTHFD_index2.html.png)
