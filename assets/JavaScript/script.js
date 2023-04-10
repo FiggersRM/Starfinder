@@ -282,8 +282,11 @@ function handleAddtoList(event) {
 function saveRecipes(event) {
   var recipeId = this.id;
   console.log(recipeId);
-  savedRecipes.push(recipeId + ",");
-  localStorage.setItem("savedRecipes", JSON.stringify(savedRecipes));
+  console.log(savedRecipes);
+  var newRecs = [];
+  newRecs = savedRecipes.split(",");
+  newRecs.push(recipeId + ",");
+  localStorage.setItem("savedRecipes", JSON.stringify(newRecs));
   $(this).remove();
 }
 
@@ -297,10 +300,6 @@ function handleDeleteFood () {
     $("#card-" + foodToDel).remove();
     var newRecipeIngredients = recipeIngredients.replace(foodToDel + ",", "");
     recipeIngredients = newRecipeIngredients;
-}
-
-function switchPage () {
-  window.location.href = "./index2.html";
 }
 
 
