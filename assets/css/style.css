@@ -53,11 +53,11 @@ html {
     border-radius: 10px;
 } */
 
-#recipeCards {
+/* #recipeCards {
     display: flex;
-}
+} */
 
-.recipeCard {
+/* .recipeCard {
     border: 2px solid black;
     margin: 5px;
     min-width: 200px;
@@ -85,11 +85,11 @@ html {
 
 .recipeCard button {
     margin: 25px;
-}
+} */
 
-.recipeCard a:hover {
+/* .recipeCard a:hover {
     color: lightblue;
-}
+} */
 
 #foodCards {
     display: flex;
@@ -139,6 +139,22 @@ html {
     display: none;
 }
 
+#recipeCardsCont h1 {
+    text-align: center;
+    font-size: 350%;
+    font-weight: bold;
+}
+
+#foodCardsCont h1 {
+    text-align: center;
+    font-size: 350%;
+    font-weight: bold;
+}
+
+.content li {
+    list-style-type: none;
+}
+
 /* table {
     font-family: arial, sans-serif;
     border-collapse: collapse;
@@ -166,10 +182,19 @@ tr:nth-child(even) {
   background-color: #dddddd;
 } */
 
-#srchRecipesBtn {
+/* #srchRecipesBtn {
     margin-left: 130px;
+} */
+
+.card {
+    text-align: center;
+    height: auto;
 }
 
+.card footer {
+    border: none;
+    justify-content: center;
+}
 @media (max-width: 800px) {
     .navbar {
         flex-direction: column;
